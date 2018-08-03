@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.usecase
+package com.capraro.cleanarch.usecase.boundary
 
 import com.capraro.cleanarch.model.Milk
 import com.capraro.cleanarch.model.Size

@@ -1,9 +1,25 @@
-# Spring boot / Kotlin
-## Clean Architecture example.
+# Clean Architecture example 
 
 An example web app structured with a [Clean Architecture][clean-arch], implemented using [Spring Boot][springboot] and [Kotlin][kotlin].
 
-![Robert C Martin - Clean Architecture](http://i.imgur.com/WkBAATy.png)
+
+![Robert C Martin - Clean Architecture](https://bit.ly/2vhBWz7)
+![Robert C Martin - Clean Architecture Typical implementation](http://i.imgur.com/WkBAATy.png)
+
+Following the control flow, we have an HTTP Request that reaches the Controller. The controller will then:
+
+- Dismantle the Request;
+- Create a Request Model with the relevant data;
+- Execute a method in the Interactor (which was injected into the Controller using the Interactor’s interface, the Boundary), passing it the Request Model;
+- The Interactor:
+  - Uses the Entity Gateway Implementation (which was injected into the Interactor using the Entity Gateway Interface) to find the relevant Entities;
+  - Orchestrates interactions between Entities;
+  - Creates a Response Model with the data result of the Operation;
+  - Populates the Presenter giving it the Response Model;
+  - Returns the Presenter to the Controller;
+- Uses the Presenter to generate a ViewModel;
+- Binds the ViewModel to the View;
+- Returns the View to the client.
 
 [clean-arch]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
 [springboot]: https://spring.io/projects/spring-boot
