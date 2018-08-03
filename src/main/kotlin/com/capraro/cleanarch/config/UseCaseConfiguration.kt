@@ -1,6 +1,6 @@
 package com.capraro.cleanarch.config
 
-import com.capraro.cleanarch.usecase.boundary.UseCase
+import com.capraro.cleanarch.order.usecase.UseCase
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.FilterType

@@ -1,6 +1,6 @@
 package com.capraro.cleanarch.infra.web
 
-import com.capraro.cleanarch.usecase.boundary.*
+import com.capraro.cleanarch.order.usecase.*
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
@@ -20,7 +20,7 @@ class OrderController(val createOrder: CreateOrder,
 
     @GetMapping
     fun getOrders(): List<GetOrdersResponseBody> {
-        return getOrders.getOrders() {
+        return getOrders.getOrders {
             it.map { it.toResponseBody() }
         }
     }

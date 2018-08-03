@@ -1,8 +1,8 @@
-package com.capraro.cleanarch.usecase.boundary
+package com.capraro.cleanarch.order.usecase
 
-import com.capraro.cleanarch.model.Milk
-import com.capraro.cleanarch.model.Size
-import com.capraro.cleanarch.model.Status
+import com.capraro.cleanarch.order.model.Milk
+import com.capraro.cleanarch.order.model.Size
+import com.capraro.cleanarch.order.model.Status
 
 interface GetOrders {
     fun <T> getOrders(presenter: (List<GetOrdersResponse>) -> T): T

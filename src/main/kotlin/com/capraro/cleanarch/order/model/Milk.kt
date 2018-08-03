@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.model
+package com.capraro.cleanarch.order.model
 
 enum class Milk {
     WHOLE,

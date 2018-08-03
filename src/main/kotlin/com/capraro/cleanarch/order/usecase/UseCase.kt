@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.usecase.boundary
+package com.capraro.cleanarch.order.usecase
 
 import org.springframework.stereotype.Component
 

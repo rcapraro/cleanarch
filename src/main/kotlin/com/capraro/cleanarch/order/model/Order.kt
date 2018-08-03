@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.model
+package com.capraro.cleanarch.order.model
 
 import java.math.BigDecimal
 import java.util.*

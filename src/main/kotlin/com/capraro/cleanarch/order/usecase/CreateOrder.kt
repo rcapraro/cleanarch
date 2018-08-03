@@ -1,7 +1,7 @@
-package com.capraro.cleanarch.usecase.boundary
+package com.capraro.cleanarch.order.usecase
 
-import com.capraro.cleanarch.model.Milk
-import com.capraro.cleanarch.model.Size
+import com.capraro.cleanarch.order.model.Milk
+import com.capraro.cleanarch.order.model.Size
 import java.math.BigDecimal
 
 interface CreateOrder {
