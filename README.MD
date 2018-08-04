@@ -2,7 +2,6 @@
 
 An example web app structured with a [Clean Architecture][clean-arch], implemented using [Spring Boot][springboot] and [Kotlin][kotlin].
 
-
 ![Robert C Martin - Clean Architecture](https://bit.ly/2vhBWz7)
 ![Robert C Martin - Clean Architecture Typical implementation](http://i.imgur.com/WkBAATy.png)
 
@@ -20,6 +19,19 @@ Following the control flow, we have an HTTP Request that reaches the Controller.
 - Uses the Presenter to generate a ViewModel;
 - Binds the ViewModel to the View;
 - Returns the View to the client.
+
+Clean Architecture push us to separate __stable__ business rules (higher-level abstractions) from __volatile__ technical details (lower-level details), defining clear boundaries. 
+
+The main building block is the Dependency Rule : source code dependencies must point only __inward,__ toward __higher-level policies__.
+
+It should have the following characteristics:
+
+- Testable
+- Independent of frameworks
+- Independent of the UI
+- Independent of the database
+- Independent of any external agency
+
 
 [clean-arch]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
 [springboot]: https://spring.io/projects/spring-boot
