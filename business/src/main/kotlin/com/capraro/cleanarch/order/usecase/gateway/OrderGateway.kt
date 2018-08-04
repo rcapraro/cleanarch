@@ -13,5 +13,5 @@ interface OrderGateway {
 
     fun getOrderStatus(orderId: String): OrderStatus
 
-    fun payOrder(orderId: String): OrderStatus
+    fun payOrder(orderId: String)
 }

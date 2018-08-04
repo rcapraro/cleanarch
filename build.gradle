@@ -24,6 +24,10 @@ subprojects {
     apply plugin: 'kotlin'
     apply plugin: 'com.adarshr.test-logger'
 
+    dependencies {
+        compile("org.jetbrains.kotlin:kotlin-reflect")
+    }
+
     compileKotlin {
         kotlinOptions {
             freeCompilerArgs = ["-Xjsr305=strict"]

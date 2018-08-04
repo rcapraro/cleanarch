@@ -6,27 +6,27 @@ import com.capraro.cleanarch.order.usecase.gateway.OrderGateway
 import org.springframework.stereotype.Component
 
 @Component
-class MockOrderGateway : OrderGateway {
+class OrderJpaGateway(val orderRespository: OrderJpaRepository) : OrderGateway {
     override fun createOrder(order: Order) {
-        // TODO save order
+        orderRespository.save(order.toEntity())
     }
 
     override fun getOrder(orderId: String): Order {
-        return Order("o1", "Richard Capraro", OrderStatus.OPEN, listOf())
+        return orderRespository.getOne(orderId).toDomain()
     }
 
     override fun getOrders(): List<Order> {
-        return listOf(
-                Order("o1", "Richard Capraro", OrderStatus.OPEN, listOf()),
-                Order("o2", "Richard Capraro", OrderStatus.OPEN, listOf())
-        )
+        return orderRespository.findAll().map { it.toDomain() }
     }
 
     override fun getOrderStatus(orderId: String): OrderStatus {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return getOrder(orderId).status
     }
 
-    override fun payOrder(orderId: String): OrderStatus {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun payOrder(orderId: String) {
+        val order = orderRespository.getOne(orderId)
+        order.status = OrderStatus.PAID
+        orderRespository.save(order)
     }
+
 }

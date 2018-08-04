@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.infra.web
+package com.capraro.cleanarch.order
 
 import com.capraro.cleanarch.order.usecase.*
 import org.springframework.http.HttpStatus

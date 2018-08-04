@@ -28,4 +28,4 @@ class Order(val id: String, val customer: String, var status: OrderStatus, val i
     }
 }
 
-data class OrderItem(val product: String, val quantity: Int, val coffeeSize: CoffeeSize, val milk: Milk)
+data class OrderItem(val product: String, val quantity: Int, val size: CoffeeSize, val milk: Milk)

@@ -8,13 +8,13 @@ import java.math.BigDecimal
 import javax.persistence.*
 
 @Entity
-data class OrderEntity(@Id val id: String,
-                       val customerName: String,
-                       @Enumerated var status: OrderStatus,
-                       val cost: BigDecimal,
+data class OrderEntity(@Id val id: String = "",
+                       val customerName: String = "",
+                       @Enumerated var status: OrderStatus = OrderStatus.OPEN,
+                       val cost: BigDecimal = BigDecimal.ZERO,
                        @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
                        @JoinColumn(name = "order_id")
-                       val items: List<OrderItemEntity>)
+                       val items: List<OrderItemEntity> = mutableListOf())
 
 @Entity
 data class OrderItemEntity(@GeneratedValue(generator = "UUID")
@@ -26,3 +26,4 @@ data class OrderItemEntity(@GeneratedValue(generator = "UUID")
                            val quantity: Int,
                            @Enumerated val size: CoffeeSize,
                            @Enumerated val milk: Milk)
+
