@@ -1,0 +1,23 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'org.springframework.boot' apply false
+}
+
+group 'com.capraro'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'kotlin-spring'
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    compile project(":business")
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+}
