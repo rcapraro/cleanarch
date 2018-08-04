@@ -1,1 +1,4 @@
 rootProject.name = 'cleanarch'
+include 'persistence'
+include 'business'
+include 'rest'
