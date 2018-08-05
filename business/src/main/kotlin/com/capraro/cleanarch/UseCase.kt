@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.order.usecase
+package com.capraro.cleanarch
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)

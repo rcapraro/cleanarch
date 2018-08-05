@@ -1,4 +1,4 @@
-package com.capraro.cleanarch.order.usecase.gateway
+package com.capraro.cleanarch.order.gateway
 
 import com.capraro.cleanarch.order.model.Order
 import com.capraro.cleanarch.order.model.OrderStatus

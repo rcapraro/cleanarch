@@ -7,7 +7,6 @@ plugins {
 group 'com.capraro'
 version '0.0.1-SNAPSHOT'
 
-apply plugin: 'kotlin-spring'
 apply plugin: 'io.spring.dependency-management'
 
 dependencyManagement {
@@ -21,4 +20,5 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "com.h2database:h2"
+    testCompile "org.assertj:assertj-core:3.10.0"
 }

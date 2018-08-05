@@ -1,10 +1,10 @@
-package com.capraro.cleanarch.order.usecase.interactor
+package com.capraro.cleanarch.order.interactor
 
+import com.capraro.cleanarch.UseCase
+import com.capraro.cleanarch.order.gateway.OrderGateway
 import com.capraro.cleanarch.order.usecase.PayOrder
 import com.capraro.cleanarch.order.usecase.PayOrderRequest
 import com.capraro.cleanarch.order.usecase.PayOrderResponse
-import com.capraro.cleanarch.order.usecase.UseCase
-import com.capraro.cleanarch.order.usecase.gateway.OrderGateway
 
 @UseCase
 class PayOrderImpl(val orderGateway: OrderGateway) : PayOrder {

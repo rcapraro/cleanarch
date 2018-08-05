@@ -1,10 +1,10 @@
-package com.capraro.cleanarch.order.usecase.interactor
+package com.capraro.cleanarch.order.interactor
 
+import com.capraro.cleanarch.UseCase
+import com.capraro.cleanarch.order.gateway.OrderGateway
 import com.capraro.cleanarch.order.usecase.GetOrderStatus
 import com.capraro.cleanarch.order.usecase.GetOrderStatusRequest
 import com.capraro.cleanarch.order.usecase.GetOrderStatusResponse
-import com.capraro.cleanarch.order.usecase.UseCase
-import com.capraro.cleanarch.order.usecase.gateway.OrderGateway
 
 @UseCase
 class GetOrderStatusImpl(val orderGateway: OrderGateway) : GetOrderStatus {

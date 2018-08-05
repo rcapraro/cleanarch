@@ -1,10 +1,14 @@
-package com.capraro.cleanarch.order.usecase.interactor
+package com.capraro.cleanarch.order.interactor
 
+import com.capraro.cleanarch.UseCase
+import com.capraro.cleanarch.order.gateway.OrderGateway
 import com.capraro.cleanarch.order.model.Order
 import com.capraro.cleanarch.order.model.OrderItem
 import com.capraro.cleanarch.order.model.OrderStatus
-import com.capraro.cleanarch.order.usecase.*
-import com.capraro.cleanarch.order.usecase.gateway.OrderGateway
+import com.capraro.cleanarch.order.usecase.CreateOrder
+import com.capraro.cleanarch.order.usecase.CreateOrderRequest
+import com.capraro.cleanarch.order.usecase.CreateOrderRequestItem
+import com.capraro.cleanarch.order.usecase.CreateOrderResponse
 import java.util.*
 
 @UseCase

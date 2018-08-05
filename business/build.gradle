@@ -1,2 +1,8 @@
 group 'com.capraro'
 version '0.0.1-SNAPSHOT'
+
+apply plugin: 'kotlin-allopen'
+
+allOpen {
+    annotation("com.capraro.cleanarch.UseCase")
+}

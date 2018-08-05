@@ -1,8 +1,8 @@
 package com.capraro.cleanarch.persistence
 
+import com.capraro.cleanarch.order.gateway.OrderGateway
 import com.capraro.cleanarch.order.model.Order
 import com.capraro.cleanarch.order.model.OrderStatus
-import com.capraro.cleanarch.order.usecase.gateway.OrderGateway
 import org.springframework.stereotype.Component
 
 @Component

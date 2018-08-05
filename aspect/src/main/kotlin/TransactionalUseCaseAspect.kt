@@ -1,6 +1,6 @@
 package com.capraro.cleanarch.config
 
-import com.capraro.cleanarch.order.usecase.UseCase
+import com.capraro.cleanarch.UseCase
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
