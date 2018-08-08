@@ -10,7 +10,9 @@ import java.math.BigDecimal
 class OrderController(val createOrder: CreateOrder,
                       val getOrders: GetOrders,
                       val getOrderStatus: GetOrderStatus,
-                      val payOrder: PayOrder) {
+                      val payOrder: PayOrder,
+                      val deleteOrder: DeleteOrder,
+                      val deliverOrder: DeliverOrder) {
 
     @PostMapping(produces = ["application/hal+json"])
     @ResponseStatus(HttpStatus.CREATED)
@@ -35,6 +37,16 @@ class OrderController(val createOrder: CreateOrder,
     @PostMapping("/{orderId}/payment")
     fun payForOrder(@PathVariable orderId: String, @RequestParam amount: BigDecimal) {
         payOrder.pay(PayOrderRequest(orderId, amount)) {}
+    }
+
+    @DeleteMapping("/{orderId}")
+    fun deleteOrder(@PathVariable orderId: String) {
+        deleteOrder.delete(DeleteOrderRequest(orderId))
+    }
+
+    @PostMapping("/{orderId}/delivery")
+    fun deliverOrder(@PathVariable orderId: String) {
+        deliverOrder.deliver(DeliverOrderRequest(orderId)) {}
     }
 }
 

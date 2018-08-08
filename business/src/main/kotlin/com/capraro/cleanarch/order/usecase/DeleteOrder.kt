@@ -1,5 +1,7 @@
 package com.capraro.cleanarch.order.usecase
 
 interface DeleteOrder {
-    fun <T> deleteOrder()
+    fun delete(request: DeleteOrderRequest)
 }
+
+data class DeleteOrderRequest(val orderId: String)
