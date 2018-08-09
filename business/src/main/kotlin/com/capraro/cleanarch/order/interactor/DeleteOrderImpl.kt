@@ -8,6 +8,6 @@ import com.capraro.cleanarch.order.usecase.DeleteOrderRequest
 @UseCase
 class DeleteOrderImpl(val orderGateway: OrderGateway) : DeleteOrder {
     override fun delete(request: DeleteOrderRequest) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        orderGateway.deleteOrder(request.orderId)
     }
 }

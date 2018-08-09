@@ -7,8 +7,13 @@ import org.springframework.stereotype.Component
 
 @Component
 class OrderJpaGateway(val orderRespository: OrderJpaRepository) : OrderGateway {
+
     override fun createOrder(order: Order) {
         orderRespository.save(order.toEntity())
+    }
+
+    override fun deleteOrder(orderId: String) {
+        orderRespository.deleteById(orderId)
     }
 
     override fun getOrder(orderId: String): Order {
@@ -23,10 +28,8 @@ class OrderJpaGateway(val orderRespository: OrderJpaRepository) : OrderGateway {
         return getOrder(orderId).status
     }
 
-    override fun payOrder(orderId: String) {
-        val order = orderRespository.getOne(orderId)
-        order.status = OrderStatus.PAID
-        orderRespository.save(order)
+    override fun updateOrder(order: Order) {
+        orderRespository.save(order.toEntity())
     }
 
 }
