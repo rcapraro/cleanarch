@@ -20,6 +20,10 @@ buildscript {
 group = 'com.capraro'
 version = '0.0.1-SNAPSHOT'
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8.1'
+}
+
 subprojects {
     apply plugin: 'kotlin'
     apply plugin: 'kotlin-spring'
