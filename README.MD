@@ -1,4 +1,6 @@
 # Clean Architecture example 
+[![Build Status](https://travis-ci.org/rcapraro/cleanarch.svg?branch=master)](https://travis-ci.org/rcapraro/cleanarch)
+
 
 An example web app structured with a [Clean Architecture][clean-arch], implemented using [Spring Boot][springboot] and [Kotlin][kotlin].
 
