@@ -4,6 +4,10 @@ version '0.0.1-SNAPSHOT'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+bootJar {
+    launchScript()
+}
+
 dependencies {
     compile project(":business")
     compile project(":persistence")

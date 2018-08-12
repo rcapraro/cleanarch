@@ -20,7 +20,7 @@ buildscript {
 group = 'com.capraro'
 version = '0.0.1-SNAPSHOT'
 
-task wrapper(type: Wrapper) {
+wrapper {
     gradleVersion = '4.8.1'
 }
 
