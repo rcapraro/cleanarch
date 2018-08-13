@@ -22,6 +22,8 @@ Following the control flow, we have an HTTP Request that reaches the Controller.
 - Binds the ViewModel to the View;
 - Returns the View to the client.
 
+![Clean Architecture Control Flow](https://bit.ly/2P4s0RG)
+
 Clean Architecture push us to separate __stable__ business rules (higher-level abstractions) from __volatile__ technical details (lower-level details), defining clear boundaries. 
 
 The main building block is the Dependency Rule : source code dependencies must point only __inward,__ toward __higher-level policies__.
