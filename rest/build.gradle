@@ -16,4 +16,5 @@ dependencies {
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
     compile "com.h2database:h2"
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile "com.tngtech.archunit:archunit-junit:0.8.3"
 }

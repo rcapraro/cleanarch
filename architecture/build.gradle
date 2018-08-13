@@ -1,9 +1,0 @@
-group 'com.capraro'
-version '0.0.1-SNAPSHOT'
-
-dependencies {
-    compile project(":rest")
-    testCompile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    testCompile "junit:junit:4.12"
-    testCompile "com.tngtech.archunit:archunit-junit:0.8.3"
-}
