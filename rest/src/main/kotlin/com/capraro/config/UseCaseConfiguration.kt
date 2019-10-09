@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.FilterType
 
 @Configuration
-@ComponentScan(basePackages = ["com.capraro"],
+@ComponentScan(basePackages = ["com.capraro.business"],
         includeFilters = [ComponentScan.Filter(type = FilterType.ANNOTATION,
                 value = [UseCase::class])])
 class UseCaseConfiguration

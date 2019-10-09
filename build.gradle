@@ -32,6 +32,10 @@ subprojects {
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
         compile "org.jetbrains.kotlin:kotlin-reflect"
+        compile "io.github.microutils:kotlin-logging:1.6.22"
+        testCompile "org.assertj:assertj-core:3.11.1"
+        testCompile "org.junit.jupiter:junit-jupiter-api:5.3.1"
+        testRuntime "org.junit.jupiter:junit-jupiter-engine:5.3.1"
     }
 
     compileKotlin {
@@ -45,6 +49,18 @@ subprojects {
             freeCompilerArgs = ["-Xjsr305=strict"]
             jvmTarget = "1.8"
         }
+    }
+
+    //exclude junit 4
+    configurations {
+        all {
+            exclude module: "junit"
+        }
+    }
+
+    //use junit 5
+    test {
+        useJUnitPlatform()
     }
 
     repositories {

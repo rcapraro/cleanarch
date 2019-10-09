@@ -16,7 +16,7 @@ Following the control flow, we have an HTTP Request that reaches the Controller.
   - Uses the Entity Gateway Implementation (which was injected into the Interactor using the Entity Gateway Interface) to find the relevant Entities;
   - Orchestrates interactions between Entities;
   - Creates a Response Model with the data result of the Operation;
-  - Populates the Presenter giving it the Response Model;
+  - Populates the Presenter (which was injected into the Interactor) giving it the Response Model;
   - Returns the Presenter to the Controller;
 - Uses the Presenter to generate a ViewModel;
 - Binds the ViewModel to the View;

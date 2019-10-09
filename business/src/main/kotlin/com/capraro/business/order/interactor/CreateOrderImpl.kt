@@ -12,7 +12,7 @@ import com.capraro.business.order.usecase.CreateOrderResponse
 import java.util.*
 
 @UseCase
-class CreateOrderInteractor(val orderGateway: OrderGateway) : CreateOrder {
+class CreateOrderImpl(val orderGateway: OrderGateway) : CreateOrder {
     override fun <T> create(request: CreateOrderRequest, presenter: (CreateOrderResponse) -> T): T {
         val order = request.toOrder()
         orderGateway.createOrder(order)
