@@ -36,7 +36,6 @@ It should have the following characteristics:
 - Independent of the database
 - Independent of any external agency
 
-
 [clean-arch]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
 [springboot]: https://spring.io/projects/spring-boot
 [kotlin]: https://kotlinlang.org/

@@ -3,7 +3,7 @@ package com.capraro.business.order.usecase
 import com.capraro.business.order.model.OrderStatus
 
 interface DeliverOrder {
-    fun <T> deliver(request: DeliverOrderRequest, presenter: (PayOrderResponse) -> T): T
+    fun <T> deliver(request: DeliverOrderRequest, presenter: (DeliverOrderResponse) -> T): T
 }
 
 data class DeliverOrderRequest(val orderId: String)

@@ -12,5 +12,8 @@ data class CreateOrderRequest(val customer: String, val items: List<CreateOrderR
 
 data class CreateOrderRequestItem(val product: String, val quantity: Int, val coffeeSize: CoffeeSize, val milk: Milk)
 
-data class CreateOrderResponse(val id: String, val customer: String, val amount: BigDecimal)
+data class CreateOrderResponse(val id: String, val customer: String, val amount: BigDecimal, val items: List<CreateOrderResponseItem>)
+
+data class CreateOrderResponseItem(val product: String, val quantity: Int, val size: CoffeeSize, val milk: Milk)
+
 

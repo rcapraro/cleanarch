@@ -5,10 +5,7 @@ import com.capraro.business.order.gateway.OrderGateway
 import com.capraro.business.order.model.Order
 import com.capraro.business.order.model.OrderItem
 import com.capraro.business.order.model.OrderStatus
-import com.capraro.business.order.usecase.CreateOrder
-import com.capraro.business.order.usecase.CreateOrderRequest
-import com.capraro.business.order.usecase.CreateOrderRequestItem
-import com.capraro.business.order.usecase.CreateOrderResponse
+import com.capraro.business.order.usecase.*
 import java.util.*
 
 @UseCase
@@ -29,7 +26,11 @@ class CreateOrderImpl(val orderGateway: OrderGateway) : CreateOrder {
     }
 
     fun Order.toResponse(): CreateOrderResponse {
-        return CreateOrderResponse(id, customer, cost)
+        return CreateOrderResponse(id, customer, cost, items.map { it.toResponse() })
+    }
+
+    fun OrderItem.toResponse(): CreateOrderResponseItem {
+        return CreateOrderResponseItem(product, quantity, size, milk)
     }
 
 }
