@@ -22,10 +22,10 @@ class OrderTest {
 
         val order = Order("id1",
                 "John Doe",
-                OrderStatus.DELIVERED,
+                OrderStatus.OPEN,
                 listOf(OrderItem("Expresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
 
-        assertThrows<IllegalStateException> {
+        assertThrows<IllegalArgumentException> {
             order.pay(BigDecimal("5"))
         }
     }
