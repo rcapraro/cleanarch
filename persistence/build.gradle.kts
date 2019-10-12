@@ -3,7 +3,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar
 plugins {
     id("org.springframework.boot") version BuildPlugins.Versions.springBoot2
     id("io.spring.dependency-management") version BuildPlugins.Versions.springDependencyManagement
-    kotlin("plugin.jpa") version (kotlinVersion)
+    kotlin("plugin.jpa") version kotlinVersion
 }
 
 dependencies {

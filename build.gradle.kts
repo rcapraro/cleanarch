@@ -1,9 +1,9 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
-    kotlin("jvm") version (kotlinVersion)
-    kotlin("plugin.spring") version (kotlinVersion)
-    kotlin("plugin.allopen") version (kotlinVersion)
+    kotlin("jvm") version kotlinVersion
+    kotlin("plugin.spring") version kotlinVersion
+    kotlin("plugin.allopen") version kotlinVersion
     id("org.jetbrains.dokka") version BuildPlugins.Versions.dokka
     id("com.adarshr.test-logger") version BuildPlugins.Versions.testLogger
 }
