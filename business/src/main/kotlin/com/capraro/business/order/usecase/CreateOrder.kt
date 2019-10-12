@@ -8,7 +8,7 @@ interface CreateOrder {
     fun <T> create(request: CreateOrderRequest, presenter: (CreateOrderResponse) -> T): T
 }
 
-data class CreateOrderRequest(val customer: String, val items: List<CreateOrderRequestItem>)
+data class CreateOrderRequest(val customer: String, val items: MutableList<CreateOrderRequestItem>)
 
 data class CreateOrderRequestItem(val product: String, val quantity: Int, val coffeeSize: CoffeeSize, val milk: Milk)
 

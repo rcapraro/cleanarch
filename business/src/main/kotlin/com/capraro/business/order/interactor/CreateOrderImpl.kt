@@ -32,5 +32,4 @@ class CreateOrderImpl(val orderGateway: OrderGateway) : CreateOrder {
     fun OrderItem.toResponse(): CreateOrderResponseItem {
         return CreateOrderResponseItem(product, quantity, size, milk)
     }
-
 }

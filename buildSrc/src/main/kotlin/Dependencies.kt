@@ -13,10 +13,13 @@ object BuildPlugins {
 object Libraries {
     private object Versions {
         const val kalidation = "1.4.1"
+        const val kotlinLogging = "1.7.6"
     }
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     const val kalidation = "com.capraro:kalidation:${Versions.kalidation}"
+    const val kotlinLogging = "io.github.microutils:kotlin-logging:${Versions.kotlinLogging}"
+
 }
 
 object TestLibraries {

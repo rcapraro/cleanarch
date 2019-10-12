@@ -15,5 +15,5 @@ CREATE TABLE ITEMS
     QUANTITY int,
     SIZE     int,
     MILK     int,
-    ORDER_ID varchar(255)
+    ORDER_ID varchar(255) REFERENCES ORDERS (ID)
 );

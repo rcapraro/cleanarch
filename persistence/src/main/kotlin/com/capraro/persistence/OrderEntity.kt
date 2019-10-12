@@ -8,24 +8,24 @@ import java.math.BigDecimal
 import javax.persistence.*
 
 @Entity
-@Table(name = "ORDERS")
-data class OrderEntity(@Id val id: String = "",
-                       val customerName: String = "",
-                       @Enumerated var status: OrderStatus = OrderStatus.OPEN,
-                       val cost: BigDecimal = BigDecimal.ZERO,
-                       @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-                       @JoinColumn(name = "order_id")
-                       val items: List<OrderItemEntity> = mutableListOf())
+@Table(name = "orders")
+class OrderEntity(@Id val id: String,
+                  val customerName: String,
+                  @Enumerated var status: OrderStatus = OrderStatus.OPEN,
+                  val cost: BigDecimal = BigDecimal.ZERO,
+                  @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+                  @JoinColumn(name = "order_id")
+                  val items: MutableList<OrderItemEntity> = mutableListOf())
 
 @Entity
-@Table(name = "ITEMS")
-data class OrderItemEntity(@GeneratedValue(generator = "UUID")
-                           @GenericGenerator(
-                                   name = "UUID",
-                                   strategy = "org.hibernate.id.UUIDGenerator")
-                           @Id val id: String?,
-                           val product: String,
-                           val quantity: Int,
-                           @Enumerated val size: CoffeeSize,
-                           @Enumerated val milk: Milk)
+@Table(name = "items")
+class OrderItemEntity(@GeneratedValue(generator = "UUID")
+                      @GenericGenerator(
+                              name = "UUID",
+                              strategy = "org.hibernate.id.UUIDGenerator")
+                      @Id val id: String?,
+                      val product: String,
+                      val quantity: Int,
+                      @Enumerated val size: CoffeeSize,
+                      @Enumerated val milk: Milk)
 

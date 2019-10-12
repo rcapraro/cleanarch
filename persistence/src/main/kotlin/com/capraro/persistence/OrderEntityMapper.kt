@@ -12,7 +12,7 @@ fun OrderItemEntity.toDomain(): OrderItem {
 }
 
 fun Order.toEntity(): OrderEntity {
-    return OrderEntity(id, customer, status, cost, items.map { it.toEntity() })
+    return OrderEntity(id, customer, status, cost, items.map { it.toEntity() }.toMutableList())
 }
 
 fun OrderItem.toEntity(): OrderItemEntity {

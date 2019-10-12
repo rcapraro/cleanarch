@@ -14,6 +14,4 @@ class PayOrderImpl(val orderGateway: OrderGateway) : PayOrder {
         orderGateway.updateOrder(order)
         return presenter(PayOrderResponse(order.status))
     }
-
-
 }

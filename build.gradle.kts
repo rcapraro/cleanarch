@@ -33,7 +33,7 @@ subprojects {
 
     dependencies {
         implementation(Libraries.kotlinStdLib)
-        implementation("io.github.microutils:kotlin-logging:1.6.24")
+        implementation(Libraries.kotlinLogging)
         implementation(kotlin("reflect"))
         testImplementation(TestLibraries.assertJ)
         testImplementation(TestLibraries.junit5)
@@ -59,10 +59,9 @@ subprojects {
                 jvmTarget = "1.8"
             }
         }
+    }
 
-        test {
-            useJUnitPlatform()
-        }
-
+    tasks.test {
+        useJUnitPlatform()
     }
 }

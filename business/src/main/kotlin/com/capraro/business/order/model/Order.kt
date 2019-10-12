@@ -1,15 +1,14 @@
 package com.capraro.business.order.model
 
 import java.math.BigDecimal
-import java.util.*
 
 class Order(val id: String, val customer: String, var status: OrderStatus, val items: List<OrderItem>) {
 
-    var cost: BigDecimal = BigDecimal(Random().nextInt(5)) * items.size.toBigDecimal()
+    var cost: BigDecimal = items.fold(BigDecimal.ZERO) { acc, e -> acc + BigDecimal(e.quantity * (e.size.ordinal + 1) * 5) }
 
     fun pay(amount: BigDecimal) {
         if (status == OrderStatus.OPEN) {
-            if (amount == this.cost) {
+            if (amount.compareTo(this.cost) == 0) {
                 status = OrderStatus.PAID
             } else {
                 throw IllegalArgumentException("The paid amount is insufficient")
