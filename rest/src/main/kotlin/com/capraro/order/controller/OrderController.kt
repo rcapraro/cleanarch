@@ -1,24 +1,33 @@
 package com.capraro.order.controller
 
 import com.capraro.business.order.usecase.*
+import com.capraro.validation.RequestHandler
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
+import java.net.URI
+import java.util.*
 
 @RequestMapping("/orders")
 @RestController
-class OrderController(val createOrder: CreateOrder,
-                      val getOrders: GetOrders,
-                      val getOrderStatus: GetOrderStatus,
-                      val payOrder: PayOrder,
-                      val deleteOrder: DeleteOrder,
-                      val deliverOrder: DeliverOrder) {
+class OrderController(private val requestHandler: RequestHandler,
+                      private val createOrder: CreateOrder,
+                      private val getOrders: GetOrders,
+                      private val getOrderStatus: GetOrderStatus,
+                      private val payOrder: PayOrder,
+                      private val deleteOrder: DeleteOrder,
+                      private val deliverOrder: DeliverOrder) {
 
     @PostMapping(produces = ["application/hal+json"])
     @ResponseStatus(HttpStatus.CREATED)
-    fun createOrder(@RequestBody createOrderRequest: CreateOrderRequest): CreateOrderResponseBody {
-        return createOrder.create(createOrderRequest) {
-            it.toResponseBody()
+    fun createOrder(@RequestBody createOrderRequest: CreateOrderRequest,
+                    locale: Locale): ResponseEntity<CreateOrderResponseBody> {
+        return requestHandler.withValidRequest(createOrderRequest, locale)
+        { request ->
+            createOrder.create(request) {
+                ResponseEntity.created(URI("/orders/${it.id}")).body(it.toResponseBody())
+            }
         }
     }
 
@@ -55,7 +64,7 @@ data class HalLink(val href: String)
 data class CreateOrderResponseBody(val id: String, val customer: String, val amount: BigDecimal, val links: Map<String, HalLink>)
 
 fun CreateOrderResponse.toResponseBody(): CreateOrderResponseBody {
-    val links = mapOf(Pair("orderStatus", HalLink("/$id/orderStatus")))
+    val links = mapOf(Pair("orderStatus", HalLink("/orders/$id/orderStatus")))
     return CreateOrderResponseBody(id, customer, amount, links)
 }
 
