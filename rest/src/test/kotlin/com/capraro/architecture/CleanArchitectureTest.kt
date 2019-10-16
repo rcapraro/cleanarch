@@ -18,7 +18,7 @@ class CleanArchitectureTest {
                 .layer("Controller").definedBy("com.capraro..controller..")
                 .layer("Aspect").definedBy("com.capraro.aspect..")
 
-                .whereLayer("Business").mayOnlyBeAccessedByLayers("Persistence", "Controller", "Aspet")
+                .whereLayer("Business").mayOnlyBeAccessedByLayers("Persistence", "Controller", "Aspect")
                 .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Controller")
                 .whereLayer("Controller").mayNotBeAccessedByAnyLayer()
     }
