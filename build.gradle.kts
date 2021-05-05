@@ -1,21 +1,24 @@
-import org.jetbrains.dokka.gradle.DokkaTask
-
 plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     kotlin("plugin.allopen") version kotlinVersion
-    id("org.jetbrains.dokka") version BuildPlugins.Versions.dokka
+    id("org.jetbrains.dokka") version kotlinVersion
     id("com.adarshr.test-logger") version BuildPlugins.Versions.testLogger
 }
 
+extra["hibernate-validator.version"] = "7.0.1.Final"
+
 allprojects {
     group = "com.capraro"
-    version = "1.0.0-SNAPSHOT"
+    version = "1.0.0"
     description = "Clean Arch / Spring boot sample"
 
     repositories {
-        jcenter()
         mavenCentral()
+    }
+
+    tasks.withType<Wrapper> {
+        gradleVersion = "7.0"
     }
 }
 
@@ -25,10 +28,11 @@ subprojects {
     apply(plugin = "org.gradle.jacoco")
     apply(plugin = "org.jetbrains.dokka")
 
-    tasks.withType<DokkaTask> {
-        outputFormat = "html"
-        outputDirectory = "$buildDir/doc"
-        includes = listOf("packages.md", "module.md")
+    tasks.dokkaHtml.configure {
+        outputDirectory.set(buildDir.resolve("dokka"))
+        dokkaSourceSets.configureEach {
+            includes.from("packages.md", "module.md")
+        }
     }
 
     dependencies {
@@ -61,7 +65,8 @@ subprojects {
         }
     }
 
-    tasks.test {
+    tasks.withType<Test> {
         useJUnitPlatform()
     }
+
 }

@@ -1,10 +1,10 @@
 package com.capraro.validation
 
-import com.capraro.kalidation.spec.ValidationResult
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.core.JsonPointer
 import com.fasterxml.jackson.core.JsonProcessingException
+import io.github.rcapraro.kalidation.spec.ValidationResult
 import mu.KotlinLogging
 import org.springframework.context.MessageSource
 import org.springframework.http.ResponseEntity

@@ -14,7 +14,7 @@ This package contains model: [Order][com.capraro.business.order.model.Order] and
 
 # Package com.capraro.business.order.interactor
 
-This package contains the implementation of the usecases. Theses implementations collaborates with the gateways.
+This package contains the implementation of the usecases. These implementations collaborate with the gateways.
 
 # Package com.capraro.business.order.gateway
 

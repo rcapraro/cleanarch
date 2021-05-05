@@ -1,18 +1,18 @@
 package com.capraro.business.order.usecase
 
-import arrow.data.Validated
+import arrow.core.Validated
+import arrow.core.valid
 import com.capraro.business.Request
 import com.capraro.business.order.model.CoffeeSize
 import com.capraro.business.order.model.Milk
-import com.capraro.kalidation.constraints.function.notEmpty
-import com.capraro.kalidation.constraints.function.range
-import com.capraro.kalidation.constraints.function.size
-import com.capraro.kalidation.constraints.function.valid
-import com.capraro.kalidation.dsl.constraints
-import com.capraro.kalidation.dsl.eachElement
-import com.capraro.kalidation.dsl.property
-import com.capraro.kalidation.dsl.validationSpec
-import com.capraro.kalidation.spec.ValidationResult
+import io.github.rcapraro.kalidation.constraints.function.notEmpty
+import io.github.rcapraro.kalidation.constraints.function.range
+import io.github.rcapraro.kalidation.constraints.function.size
+import io.github.rcapraro.kalidation.dsl.constraints
+import io.github.rcapraro.kalidation.dsl.eachElement
+import io.github.rcapraro.kalidation.dsl.property
+import io.github.rcapraro.kalidation.dsl.validationSpec
+import io.github.rcapraro.kalidation.spec.ValidationResult
 import java.math.BigDecimal
 import java.util.*
 
@@ -21,7 +21,7 @@ interface CreateOrder {
 }
 
 data class CreateOrderRequest(val customer: String, val items: MutableList<CreateOrderRequestItem>) : Request {
-    override fun validate(locale: Locale): Validated<Set<ValidationResult>, Boolean> {
+    override fun validate(locale: Locale): Validated<Set<ValidationResult>, CreateOrderRequest> {
 
         val spec = validationSpec(locale, "messages") {
 

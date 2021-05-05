@@ -27,7 +27,7 @@ class OrderJpaRepositoryTest {
         orderRepository.save(OrderEntity("789z", "test", OrderStatus.OPEN, BigDecimal.ONE,
                 mutableListOf(
                         OrderItemEntity(null, "Cappuccino", 2, CoffeeSize.MEDIUM, Milk.SEMI),
-                        OrderItemEntity(null, "Expresso", 1, CoffeeSize.SMALL, Milk.WHOLE)
+                        OrderItemEntity(null, "Espresso", 1, CoffeeSize.SMALL, Milk.WHOLE)
                 )))
         assertThat(orderRepository.findById("789z").isPresent)
         assertThat(orderRepository.getOne("789z").items.size).isEqualTo(2)

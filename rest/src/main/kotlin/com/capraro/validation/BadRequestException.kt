@@ -1,6 +1,7 @@
 package com.capraro.validation
 
-import com.capraro.kalidation.spec.ValidationResult
+
+import io.github.rcapraro.kalidation.spec.ValidationResult
 
 /**
  * Bad Request exception.

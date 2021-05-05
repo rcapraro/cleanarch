@@ -5,9 +5,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":business"))
+    api(project(":business"))
     implementation(project(":persistence"))
     implementation(project(":aspect"))
+    implementation("jakarta.validation:jakarta.validation-api:3.0.0")
+    implementation("org.glassfish:jakarta.el:4.0.1")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
@@ -18,8 +20,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "junit", module = "junit")
     }
-    testCompile(TestLibraries.archUnitApi)
-    testRuntime(TestLibraries.archUnitEngine)
 }
 
 springBoot {

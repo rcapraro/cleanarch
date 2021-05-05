@@ -26,7 +26,7 @@ class TransactionalUseCaseAspect(private val transactionalUseCaseExecutor: Trans
      */
     @Around("inUseCase(useCase)")
     fun useCase(proceedingJoinPoint: ProceedingJoinPoint, useCase: UseCase): Any? {
-        return transactionalUseCaseExecutor.executeInTransaction(Supplier { proceedingJoinPoint.proceed() })
+        return transactionalUseCaseExecutor.executeInTransaction { proceedingJoinPoint.proceed() }
     }
 }
 

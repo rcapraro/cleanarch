@@ -12,7 +12,7 @@ class OrderTest {
         val order = Order("id1",
                 "John Doe",
                 OrderStatus.OPEN,
-                listOf(OrderItem("Expresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
+                listOf(OrderItem("Espresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
 
         order.pay(BigDecimal.TEN)
     }
@@ -23,7 +23,7 @@ class OrderTest {
         val order = Order("id1",
                 "John Doe",
                 OrderStatus.OPEN,
-                listOf(OrderItem("Expresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
+                listOf(OrderItem("Espresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
 
         assertThrows<IllegalArgumentException> {
             order.pay(BigDecimal("5"))
@@ -36,7 +36,7 @@ class OrderTest {
         val order = Order("id1",
                 "John Doe",
                 OrderStatus.DELIVERED,
-                listOf(OrderItem("Expresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
+                listOf(OrderItem("Espresso", 2, CoffeeSize.SMALL, Milk.WHOLE)))
 
         assertThrows<IllegalStateException> {
             order.pay(BigDecimal.TEN)

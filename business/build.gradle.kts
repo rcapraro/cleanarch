@@ -5,5 +5,6 @@ allOpen {
 }
 
 dependencies {
+    api(Libraries.arrowCore)
     api(Libraries.kalidation)
 }
